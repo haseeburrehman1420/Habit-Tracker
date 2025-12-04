@@ -1,0 +1,11 @@
+# docker-compose.yml
+services:
+  habittracker-app:
+    build: .
+    ports:
+      - "8080:8080"   # maps container port 8080 to host port 8080
+    volumes:
+      - .:/app        # optional: mount current folder to container for live updates
+    environment:
+      - FLASK_ENV=development
+    command: python app.py

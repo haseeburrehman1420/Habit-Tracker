@@ -1,0 +1,155 @@
+README.txt
+Habit Tracker Web Application (Flask)
+
+1. Overview
+
+This project is a Habit Tracking Web Application built using:
+
+Flask (Python backend)
+
+HTML / Jinja2 (templating)
+
+CSS (custom UI design)
+
+JavaScript (Chart.js for analytics and UI interactions)
+
+The application allows users to register, log in, manage habits, maintain streaks, track long-term goals, and view analytical charts.
+
+2. Features
+   2.1 User Authentication
+
+Secure login and registration
+
+Password visibility toggle
+
+Form validation
+
+Session-based authentication
+
+2.2 Habit Management
+
+Add, edit, and delete habits
+
+Daily completion checkboxes
+
+Auto-submit on click
+
+Streak counter with animated bar
+
+Tooltip for last completed date
+
+2.3 Goal Management
+
+Create long-term goals
+
+Edit and delete goals
+
+Automatic progress percentage
+
+Styled progress bars
+
+2.4 Analytics Dashboard
+
+Habit completion line chart (Chart.js)
+
+Goal progress bar chart (Chart.js)
+
+Data dynamically passed through Flask using JSON
+
+2.5 Responsive Layout
+
+Mobile-friendly navigation
+
+Flexible cards and container layouts
+
+Media queries for smaller screen sizes
+
+3. Project Structure
+   project/
+   │
+   ├── app.py
+   ├── requirements.txt
+   ├── README.txt
+   │
+   ├── static/
+   │ ├── css/
+   │ │ └── style.css
+   │ └── js/
+   │ └── main.js
+   │
+   └── templates/
+   ├── base.html
+   ├── dashboard.html
+   ├── habits.html
+   ├── goals.html
+   ├── edit_habit.html
+   ├── edit_goal.html
+   └── analytics.html
+
+4. Installation (Local Environment)
+   4.1 Create Virtual Environment
+   python -m venv venv
+
+4.2 Activate Environment
+
+Windows:
+
+venv\Scripts\activate
+
+Mac/Linux:
+
+source venv/bin/activate
+
+4.3 Install Dependencies
+pip install -r requirements.txt
+
+4.4 Run Application
+python app.py
+
+Access the app at:
+
+http://localhost:5000
+
+5. Docker Deployment Guide
+   5.1 Example Dockerfile
+   FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+
+5.2 Build Docker Image
+docker build -t habit-tracker .
+
+5.3 Run Docker Container
+docker run -d -p 5000:5000 habit-tracker
+
+Open in browser:
+
+http://localhost:5000
+
+6. Requirements File (Example)
+   Flask
+   Werkzeug
+   Jinja2
+   itsdangerous
+   click
+   python-dotenv
+
+Add any additional database or library dependencies you use.
+
+7. Notes
+
+The application uses Chart.js (loaded via CDN) for analytics.
+
+Static files must be referenced using Flask's url_for.
+
+Works with WSGI servers such as Gunicorn or uWSGI for production.
+
+Suitable for deployment on Docker, Linux servers, or cloud platforms.
