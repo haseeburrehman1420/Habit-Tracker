@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Habit{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Edit Habit</h1>
+    <form method="POST" class="form">
+        <label for="name">Habit Name</label>
+        <input type="text" id="name" name="name" value="{{ habit['name'] }}" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description">{{ habit['description'] }}</textarea>
+
+        <button type="submit" class="btn">Save Changes</button>
+    </form>
+    <a href="{{ url_for('habits') }}" class="link">← Back to Habits</a>
+</div>
+{% endblock %}

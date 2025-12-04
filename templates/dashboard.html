@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Habit Tracker{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<!-- Daily Check-in Streak -->
+<div class="card checkin-card">
+    <h2>Daily Check-in</h2>
+    <p>Current Streak: <span class="streak-count">{{ checkin_streak }}</span> days</p>
+    <form action="{{ url_for('daily_checkin') }}" method="get">
+        <button type="submit" class="btn-checkin">Check In</button>
+    </form>
+</div>
+
+<!-- Habit List -->
+<div class="card habits-card">
+    <h2>Your Habits Today</h2>
+    <ul class="habit-list">
+        {% for habit in habits %}
+        <li>
+            <form action="{{ url_for('mark_progress', habit_id=habit.id) }}" method="get" class="habit-form">
+                <input type="checkbox" name="completed" onchange="this.form.submit()" {% if habit.completed_today %}checked{% endif %}>
+            </form>
+            <div class="habit-info">
+                <b>{{ habit.name }}</b> - {{ habit.description }}
+                <!-- Visual streak bar -->
+                <div class="streak-bar" style="width: {{ habit.streak*10 }}px;"></div>
+                {% if habit.last_completed %}
+                <span class="tooltip" title="Last completed: {{ habit.last_completed }}">💡</span>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Quick Links -->
+<div class="card quick-links">
+    <h2>Quick Links</h2>
+    <a class="btn-link" href="{{ url_for('habits') }}">Manage Habits</a>
+    <a class="btn-link" href="{{ url_for('goals') }}">View Goals</a>
+    <a class="btn-link" href="{{ url_for('analytics') }}">Analytics</a>
+</div>
+{% endblock %}

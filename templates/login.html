@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Login — Habit Tracker{% endblock %}
+{% block content %}
+
+<div class="card" style="max-width: 400px; margin: 40px auto; padding: 30px; text-align: center;">
+
+    <form id="registerForm" method="post" class="form">
+        <input id="username" name="username" type="text" placeholder="Enter your username" required>
+
+        <!-- Password Field -->
+        <div style="position: relative; margin-bottom: 5px;">
+            <input id="password" name="password" type="password" placeholder="Enter your password" required style="width:100%; padding-right: 40px; height:40px; font-size:16px;">
+            <span class="toggle-password" data-target="password" style="position:absolute; right:10px; top:43%; transform:translateY(-50%); cursor:pointer;">
+                <!-- Gmail-style eye icon SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+            </span>
+        </div>
+
+        <button type="submit" class="btn-checkin" style="width: 100%; margin-top: 15px;">Login</button>
+    </form>
+
+    <p style="margin-top: 15px;">No account? <a href="{{ url_for('register') }}">Register here</a></p>
+</div>
+
+{% endblock %}

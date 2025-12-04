@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Analytics</h1>
+
+        <!-- Analytics Card -->
+        <div class="card">
+            <canvas id="habitChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Render Chart -->
+        <script>
+            window.onload = function() {
+                console.log("dates:", {{ dates|tojson|safe }});
+                console.log("data:", {{ data|tojson|safe }});
+                renderHabitChart({{ dates|tojson|safe }}, {{ data|tojson|safe }});
+            };
+        </script>
+
+        <br>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+/* ---------- General Reset & Typography ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 0;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header .brand {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.site-header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.site-header nav a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ---------- Buttons ---------- */
+button, .btn-link {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin: 5px 0;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+button:hover, .btn-link:hover {
+    opacity: 0.9;
+}
+
+/* Check-in button */
+button.btn-checkin {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 18px;
+    font-weight: 600;
+}
+
+button.btn-checkin:hover {
+    background-color: #3e8e41;
+}
+
+/* Quick links buttons */
+.quick-links a, .btn-link {
+    background-color: #2196f3;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    transition: all 0.2s ease;
+}
+
+.quick-links a:hover, .btn-link:hover {
+    background-color: #0b63c4;
+}
+
+/* ---------- Habit & Goal List ---------- */
+.habit-list, .goal-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.habit-list li, .goal-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.habit-info, .goal-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-info b, .goal-info b {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.habit-actions a, .goal-actions a {
+    margin-right: 10px;
+    color: #2196f3;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.habit-actions a:hover, .goal-actions a:hover {
+    color: #0b63c4;
+}
+
+/* ---------- Streak Bar ---------- */
+.streak-bar {
+    display: inline-block;
+    height: 10px;
+    background: linear-gradient(to right, #4caf50, #81c784);
+    margin-left: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+/* Tooltip icon */
+.tooltip {
+    margin-left: 8px;
+    cursor: help;
+}
+
+/* ---------- Check-in Card ---------- */
+.checkin-card p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.streak-count {
+    font-weight: bold;
+    color: #4caf50;
+}
+
+/* ---------- Forms ---------- */
+.form input[type="text"],
+.form input[type="date"],
+.form input[type="number"],
+.form input[type="password"],
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.4;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.form textarea {
+    height: 40px; /* match typical input height */
+    resize: vertical; 
+}
+
+/* ---------- Analytics Chart ---------- */
+#habitChart {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-header nav a {
+        margin: 5px 10px 0 0;
+    }
+
+    .habit-list li, .goal-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .streak-bar {
+        margin: 5px 0 0 0;
+    }
+}
+
+.btn-edit, .btn-delete {
+    padding: 8px 16px; /* keep button size normal */
+    margin: 10px 5px; /* top/bottom: 10px, left/right: 5px */
+    font-size: 0.9em;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    opacity: 0.9;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.1em;
+}
+
